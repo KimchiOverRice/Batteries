@@ -62,8 +62,8 @@ async def menu():
                 await asyncio.sleep(1.0)
         elif selection == 'Message1':
             msg1 = ElconTcCharger.Message1()
-            msg1.max_charging_voltage = float(inquirer.text('Max charging voltage', default='0'))
-            msg1.max_charging_current = float(inquirer.text('Max charging current', default='0'))
+            msg1.max_charging_voltage = float(inquirer.text('Max charging voltage', default='110'))
+            msg1.max_charging_current = float(inquirer.text('Max charging current', default='10'))
             msg1.battery_protection_enabled = bool(inquirer.text('Battery protection enabled', default='0'))
             charger.send(msg1)
         elif selection == 'Message2':

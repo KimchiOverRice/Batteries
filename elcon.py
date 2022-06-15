@@ -145,7 +145,12 @@ class ElconTcCharger(object):
         bus = self.bus
         msg = can.Message(arbitration_id=message.CAN_ID,
                           data=message.to_bytearray())
-        bus.send(msg)
+        print(msg)
+        try:
+            bus.send(msg)
+            print(f"Message sent")
+        except can.CanError:
+            print("Message NOT sent")
 
     async def recv(self, msg: can.Message) -> None:
 
